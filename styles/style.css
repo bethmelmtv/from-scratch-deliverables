@@ -61,6 +61,15 @@ header {
     box-shadow: var(--shadow);
 }
 
+.hiding-places {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
 
 h2 {
     font-size: 1.8rem;
