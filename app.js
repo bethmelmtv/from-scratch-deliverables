@@ -7,17 +7,17 @@
   // use user input to update state 
   // update DOM to reflect the new state
 
-
-  let const yosemiteButton = document.getElementById('yosemitebutton');
-  let const hollywoodButton = document.getElementById('hollywoodbutton');
-  let const sanFranciscoButton = document.getElementById('sfbutton');
+const yosemiteButton = document.getElementById('yosemitebutton');
+const hollywoodButton = document.getElementById('hollywoodbutton');
+const sanFranciscoButton = document.getElementById('sfbutton');
 
 //containers, we dont need to get individual pieces like each photo, because i think its not necessary
 
-  let const yosemiteContainer = getElementById('YosemiteContainer')
-  let const hollywoodContainer = getElementById('HollywoodContainer')
-  let const sanFranciscoContainer = getElementById('SanFranciscoContainer')
-
+const yosemiteContainer = document.getElementById('YosemiteContainer');
+const hollywoodContainer = document.getElementById('HollywoodContainer');
+const sanFranciscoContainer = document.getElementById('SanFranciscoContainer');
 //hiding places
 
-  let const 
+const totalEl
+const lossesEl
+winsEl 
