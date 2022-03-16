@@ -21,8 +21,58 @@ let winsEl = document.getElementById(wins);
 
 //we created two variables to hold the person's  correct guesses and total guesses
 //for losses, we will subtract correct guesses from total guesses
+
 let correctGuesses = 0;
 let totalGuesses = 0;
+
+
+yosemiteButton.addEventListener('click', () => {
+    const correctSpot = getRandomHidingSpot();
+    handleGuess('yosemite', correctSpot);
+});
+
+hollywoodButton.addEventListener('click', () => {
+    const correctSpot = getRandomHidingSpot();
+    handleGuess('hollywood', correctSpot);
+});
+
+sanFranciscoButton.addEventListener('click', () => {
+    const correctSpot = getRandomHidingSpot();
+    handleGuess('sf', correctSpot);
+});
+
+
+function getRandomHidingSpot() {
+    // initialize state
+    const hidingPlaces = [
+        'yosemite',
+        'sf',
+        'hollywood'
+    ];
+
+    const index = Math.floor(Math.random() * hidingPlaces.length);
+    // returns a random number based on the length of array
+}
+
+function handleGuess(userGuest, correctSpot) {
+    if (userGuest === correctSpot) {
+        correctGuesses++;
+    }
+    yosemiteContainer.classList.remove('face');
+    hollywoodContainer.classList.remove('face');
+    sanFranciscoContainer.classList.remove('face');
+
+    totalGuesses++;
+
+    let hidingspotEl = document.getElementById(correctSpot + '-container');
+
+    hidingspotEl.classList.toggle('face');
+
+//update correctGuesses, totalGuesses and losses accordingly 
+    winsEl.textContent = correctGuesses;
+    lossesEl.textContent = totalGuesses - correctGuesses;
+    totalEl.textContent = totalGuesses;
+}
 
 
 //how to approach this project
@@ -50,10 +100,3 @@ let totalGuesses = 0;
 
 //with this function, i want to create a random computer generated answer, then check that against the user's choice, and then 
 //update correctGuesses, totalGuesses and losses accordingly 
-
-function correctAnswer() {
-    const anArray = ['yosemite', 'sf', 'hollywood']; //created an array
-    // i want to grab a random number based on the index of the array above
-    const randomChoice = Math.floor(Math.random() + 1 * indexOf(anArray));
-   // I am expecting for the function to return a number 0, 1 or 2 or 3  
-}
