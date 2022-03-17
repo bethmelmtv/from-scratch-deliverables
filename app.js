@@ -12,18 +12,39 @@ const hollywoodContainer = document.getElementById('HollywoodContainer');
 const sanFranciscoContainer = document.getElementById('SanFranciscoContainer');
 //hiding places
 
+const locationPhoto = document.querySelector('locationphoto');
+
 //were  grabbing these span elements from html, although im not sure why we're putting El in front of 
 //new variable names 
 let totalEl = document.getElementById(total);
 let lossesEl = document.getElementById(losses);
 let winsEl = document.getElementById(wins);
 
+let hidingSpotEl = document.querySelector('hiding-places');
+
 
 //we created two variables to hold the person's  correct guesses and total guesses
 //for losses, we will subtract correct guesses from total guesses
 
+
+//initialize state
+
+const hidingPlaces = [
+    'yosemite',
+    'sf',
+    'hollywood' 
+];
+
 let correctGuesses = 0;
 let totalGuesses = 0;
+
+
+
+function getRandomHidingSpot() {
+    const index = Math.floor(Math.random() * hidingPlaces.length);
+// returns a random number based on the length of array
+    return index;
+}
 
 
 yosemiteButton.addEventListener('click', () => {
@@ -42,37 +63,24 @@ sanFranciscoButton.addEventListener('click', () => {
 });
 
 
-function getRandomHidingSpot() {
-    // initialize state
-    const hidingPlaces = [
-        'yosemite',
-        'sf',
-        'hollywood'
-    ];
-
-    const index = Math.floor(Math.random() * hidingPlaces.length);
-    // returns a random number based on the length of array
-}
-
 function handleGuess(userGuest, correctSpot) {
+    totalGuesses++;
     if (userGuest === correctSpot) {
         correctGuesses++;
     }
-    yosemiteContainer.classList.remove('face');
-    hollywoodContainer.classList.remove('face');
-    sanFranciscoContainer.classList.remove('face');
+}
 
-    totalGuesses++;
 
-    let hidingspotEl = document.getElementById(correctSpot + '-container');
-
-    hidingspotEl.classList.toggle('face');
+//
 
 //update correctGuesses, totalGuesses and losses accordingly 
-    winsEl.textContent = correctGuesses;
-    lossesEl.textContent = totalGuesses - correctGuesses;
-    totalEl.textContent = totalGuesses;
-}
+winsEl.textContent = correctGuesses;
+lossesEl.textContent = totalGuesses - correctGuesses;
+totalEl.textContent = totalGuesses;
+
+
+
+//let hidingspotEl = document.getElementById(correctSpot + '-container');
 
 
 //how to approach this project

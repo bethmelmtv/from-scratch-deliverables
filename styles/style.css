@@ -117,9 +117,3 @@ footer {
     flex-direction: row;
 }
 
-
-.face::after {
-    font-size: 8rem;
-    background-image: url('./assets/CSD.png');
-    position: absolute;
-}
