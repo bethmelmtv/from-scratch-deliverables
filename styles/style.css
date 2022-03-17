@@ -117,3 +117,8 @@ footer {
     flex-direction: row;
 }
 
+.face::after {
+    font-size: 8rem;
+    content: '😃';
+    position: absolute;
+}

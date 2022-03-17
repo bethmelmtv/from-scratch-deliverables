@@ -7,20 +7,16 @@ const sanFranciscoButton = document.getElementById('sfbutton');
 
 
 //were grabbing each container from html using dom methods
-const yosemiteContainer = document.getElementById('YosemiteContainer');
-const hollywoodContainer = document.getElementById('HollywoodContainer');
-const sanFranciscoContainer = document.getElementById('SanFranciscoContainer');
+const yosemiteContainer = document.getElementById('Yosemite-Container');
+const hollywoodContainer = document.getElementById('Hollywood-Container');
+const sanFranciscoContainer = document.getElementById('SanFrancisco-Container');
 //hiding places
-
-const locationPhoto = document.querySelector('locationphoto');
 
 //were  grabbing these span elements from html, although im not sure why we're putting El in front of 
 //new variable names 
-let totalEl = document.getElementById(total);
-let lossesEl = document.getElementById(losses);
-let winsEl = document.getElementById(wins);
-
-let hidingSpotEl = document.querySelector('hiding-places');
+let totalEl = document.getElementById('total');
+let lossesEl = document.getElementById('losses');
+let winsEl = document.getElementById('wins');
 
 
 //we created two variables to hold the person's  correct guesses and total guesses
@@ -29,58 +25,70 @@ let hidingSpotEl = document.querySelector('hiding-places');
 
 //initialize state
 
-const hidingPlaces = [
-    'yosemite',
-    'sf',
-    'hollywood' 
-];
-
 let correctGuesses = 0;
 let totalGuesses = 0;
 
 
-
-function getRandomHidingSpot() {
-    const index = Math.floor(Math.random() * hidingPlaces.length);
-// returns a random number based on the length of array
-    return index;
-}
-
-
 yosemiteButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot();
-    handleGuess('yosemite', correctSpot);
+    handleGuess('Yosemite', correctSpot);
 });
 
 hollywoodButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot();
-    handleGuess('hollywood', correctSpot);
+    handleGuess('Hollywood', correctSpot);
 });
 
 sanFranciscoButton.addEventListener('click', () => {
     const correctSpot = getRandomHidingSpot();
-    handleGuess('sf', correctSpot);
+    handleGuess('SanFrancisco', correctSpot);
 });
 
 
+function getRandomHidingSpot() {
+    const hidingPlaces = [
+        'Yosemite',
+        'SanFrancisco',
+        'Hollywood' 
+    ];
+
+    const index = Math.floor(Math.random() * hidingPlaces.length);
+    const randomPlace = hidingPlaces[index];
+    return randomPlace;
+
+}
+
+
 function handleGuess(userGuest, correctSpot) {
-    totalGuesses++;
     if (userGuest === correctSpot) {
         correctGuesses++;
     }
+    yosemiteContainer.classList.remove('face');
+    hollywoodContainer.classList.remove('face');
+    sanFranciscoContainer.classList.remove('face');
+
+    totalGuesses++;
+
+    //reveal face/image on correct spot div 
+    let hidingSpotEl = document.getElementById(correctSpot + '-Container');
+
+    hidingSpotEl.classList.toggle('face');
+
+
+    winsEl.textContent = correctGuesses;
+    totalEl.textContent = totalGuesses;
+    lossesEl.textContent = totalGuesses - correctGuesses;
 }
 
 
 //
 
 //update correctGuesses, totalGuesses and losses accordingly 
-winsEl.textContent = correctGuesses;
-lossesEl.textContent = totalGuesses - correctGuesses;
-totalEl.textContent = totalGuesses;
 
 
 
-//let hidingspotEl = document.getElementById(correctSpot + '-container');
+
+//let  = document.getElementById(correctSpot + '-container');
 
 
 //how to approach this project
