@@ -61,6 +61,15 @@ header {
     box-shadow: var(--shadow);
 }
 
+.hiding-places {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
 
 h2 {
     font-size: 1.8rem;
@@ -88,4 +97,28 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.locationphoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.locationphoto {
+    width: 200px;
+    height: 265px;
+}   
+        
+.options{
+    display: flex;
+    flex-direction: row;
+}
+
+.face::after {
+    font-size: 8rem;
+    content: '😃';
+    position: absolute;
 }
