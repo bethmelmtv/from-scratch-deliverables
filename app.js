@@ -107,4 +107,6 @@ totalEl.textContent = totalGuesses;
 
 
 //with this function, i want to create a random computer generated answer, then check that against the user's choice, and then 
-//update correctGuesses, totalGuesses and losses accordingly 
+//update correctGuesses, totalGuesses and losses accordingly //
+
+//
